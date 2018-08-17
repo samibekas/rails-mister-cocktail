@@ -10,3 +10,6 @@
 import '../components/select2';
 import { bindSweetAlertButtonDemo } from '../components/sweet_alert';
 bindSweetAlertButtonDemo();
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+initUpdateNavbarOnScroll();
+import '../components/select_tags';

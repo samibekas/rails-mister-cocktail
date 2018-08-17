@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_16_092714) do
+ActiveRecord::Schema.define(version: 2018_08_17_134906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cocktail_tags", force: :cascade do |t|
+    t.bigint "cocktail_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cocktail_id"], name: "index_cocktail_tags_on_cocktail_id"
+    t.index ["tag_id"], name: "index_cocktail_tags_on_tag_id"
+  end
 
   create_table "cocktails", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
   end
 
   create_table "doses", force: :cascade do |t|
@@ -37,6 +47,14 @@ ActiveRecord::Schema.define(version: 2018_08_16_092714) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "cocktail_tags", "cocktails"
+  add_foreign_key "cocktail_tags", "tags"
   add_foreign_key "doses", "cocktails"
   add_foreign_key "doses", "ingredients"
 end

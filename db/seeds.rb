@@ -13,3 +13,4 @@ result['drinks'].each do |item|
  Ingredient.create!(name: item["strIngredient1"])
  # p item['strIngredient1']
 end
+

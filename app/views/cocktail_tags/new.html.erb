@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Add a new tag</h1>
+      <%= simple_form_for [ @cocktail, @cocktail_tag ] do |f| %>
+        <%= f.input :tag, collection: Tag.all, input_html: { multiple: true, class: "select2" } %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

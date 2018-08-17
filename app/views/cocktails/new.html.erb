@@ -1,8 +1,13 @@
-<h1>Create new cocktails</h1>
+<div class="container">
+  <h1>Create new cocktails</h1>
 
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "add a cocktail", class: "btn btn-primary", id: "sweet-alert-demo" %>
-<% end %>
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :tags, collection: Tag.all, input_html: { multiple: true, class: "select2" } %>
+    <%= f.submit "add a cocktail", class: "btn btn-primary", id: "sweet-alert-demo" %>
+  <% end %>
 
-<%= link_to "Cancel", cocktails_path %>
+  <%= link_to "Cancel", cocktails_path %>
+</div>

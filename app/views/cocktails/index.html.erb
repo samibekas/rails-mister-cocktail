@@ -1,11 +1,41 @@
-<h1>All Cocktails</h1>
+<div class="banner" >
+  <div class="banner-content">
+    <h1>Turn Your Favorite Cocktail Recipes into Your Grocery List</h1>
+    <p>Now there is an easier way to get started on actually making those yummy-looking recipes.</p>
+    <%= link_to "Add new cocktail", new_cocktail_path, class:"btn btn-cta"%>
+  </div>
+  <div class="banner-image ">
+    <%= image_tag 'cocktail'%>
+  </div>
+</div>
 
-<ul>
-  <% @cocktails.each do |cocktail|%>
-    <li>
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="title-index text-center">
+    <h3>POPULAR</h3>
+    <h1>Cocktails</h1>
+  </div>
+  <div class="row">
+    <% @cocktails.each do |cocktail|%>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+        <div class="card-cocktail">
+          <div class="card-cocktail-img">
+            <%= cl_image_tag cocktail.photo, height: 540, width: 300, crop: :fill, class:"cocktail-img"%>
+          </div>
+          <div class="card-cocktail-infos">
+            <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+            <div class="card-tags">
+              <% cocktail.tags.each do |tag| %>
+                <span><%= tag.name %></span>
+              <% end %>
+              <%= link_to new_cocktail_cocktail_tag_path(cocktail) do %>
+                <i class="fa fa-plus"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to "Add a new cocktail", new_cocktail_path %>
+
