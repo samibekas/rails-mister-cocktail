@@ -2,7 +2,7 @@
 
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
-  <%= f.submit "add a cocktail", class: "btn btn-primary" %>
+  <%= f.submit "add a cocktail", class: "btn btn-primary", id: "sweet-alert-demo" %>
 <% end %>
 
 <%= link_to "Cancel", cocktails_path %>

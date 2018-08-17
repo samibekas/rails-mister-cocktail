@@ -8,3 +8,5 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import '../components/select2';
+import { bindSweetAlertButtonDemo } from '../components/sweet_alert';
+bindSweetAlertButtonDemo();
